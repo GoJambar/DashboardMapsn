@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="layout">
+
+<head>
+<title>Update Details</title>
+</head>
+<body>
+	<section layout:fragment="header">
+		<h1>
+			Update Detail <small>Control panel</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">Update Details</li>
+		</ol>
+	</section>
+	<div layout:fragment="content">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Horizontal Form -->
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Update Detail</h3>
+					</div>
+					
+					<form th:action="@{/regions/update/{id}(id=${region.id})}" th:object="${region}"
+						method="post" class="form-horizontal">
+						<div class="box-body">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Code Region</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control"
+									
+										th:field="*{codeRegion}" placeholder="Code Region">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" th:field="*{name}" />
+									<p class="text-red" th:if="${#fields.hasErrors('name')}"
+										th:errors="*{name}"></p>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Photo</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" th:field="*{photo}" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Superficie</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control"
+										th:field="*{superficie}" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Population</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control"
+										th:field="*{population}" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Latitude</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" th:field="*{latitude}" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Longitude</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" th:field="*{longitude}" />
+									<p class="text-red" th:if="${#fields.hasErrors('longitude')}"
+										th:errors="*{longitude}"></p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">detail</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" th:field="*{detail}" />
+									<p class="text-red" th:if="${#fields.hasErrors('detail')}"
+										th:errors="*{detail}"></p>
+								</div>
+							</div>
+
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer center">
+							<a th:href="@{/regions/list}">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-right"></i> Cancel
+								</button>
+							</a>
+							<button type="submit" class="btn btn-info pull-right">
+								<i class="fa fa-save"></i> Update
+							</button>
+						</div>
+						<!-- /.box-footer -->
+					</form>
+				</div>
+				<!-- /.box -->
+			</div>
+		</div>
+	</div>
+
+	<th:block layout:fragment="script">
+		<script>
+			
+		</script>
+	</th:block>
+
+		
+	</script>
+</body>
+
+</html>
